@@ -1,28 +1,25 @@
+import react from "react";
+import API from "../utils/API";
+import Row from "./Row";
+
 // Code below adapted from
 // https://codepen.io/austinlyons/pen/YpmyJB?editors=0010
 
-const Row = ({id, title, priority, type, complete}) => (
-    <div className="row">
-      <div>{id}</div>
-      <div>{title}</div>
-      <div>{priority}</div>
-      <div>{type}</div>    
-      <div>{complete}</div>    
-    </div>
-  );
   
   /*
     Table component written as an ES6 arrow function
   */
-  Table = (e) => {
+  class Table extends react.Component {
     state = {
-        data: [
-          {id: 403, title: 'Task 403', priority: 'High', type: 'Improvement', complete: 100}, 
-          {id: 532, title: 'Task 532', priority: 'Medium', type: 'Improvement', complete: 30}, 
-          {id: 240, title: 'Task 240', priority: 'High', type: 'Story', complete: 66},
-        ],
-      },
-                
+      data: []
+      }
+    
+    componentDidMount() {
+      API.getUsers().then(res => {
+        console.log(res);
+        this.setState({data: res.data.results})
+      })
+    }  
     compareBy = (key) => {
       return function (a, b) {
         if (a[key] < b[key]) return -1;
@@ -36,24 +33,25 @@ const Row = ({id, title, priority, type, complete}) => (
       arrayCopy.sort(this.compareBy(key));
       this.setState({data: arrayCopy});
     }
-    const rows = this.state.data.map( (rowData) => <Row {...rowData} />);
 
+    render(){
     return (
-            
-        
-              <div className="table">
-                <div className="header">
-                  <div onClick={() => this.sortBy('id')} >ID</div>
-                  <div onClick={() => this.sortBy('title')}>Title</div>
-                  <div onClick={() => this.sortBy('priority')}>Priority</div>
-                  <div onClick={() => this.sortBy('type')}>Issue Type</div>
-                  <div onClick={() => this.sortBy('complete')}>% Complete</div>
-                </div>
-                <div className="body">
-                  {rows}
-                </div>
-              </div>
+      <table className="table">
+        <thead>
+          <tr>
+          <th onClick={() => this.sortBy('name')} >ID</th>
+          <th onClick={() => this.sortBy('title')}>Title</th>
+          <th onClick={() => this.sortBy('priority')}>Priority</th>
+          <th onClick={() => this.sortBy('type')}>Issue Type</th>
+          <th onClick={() => this.sortBy('complete')}>% Complete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.state.data.map( (rowData) => <Row {...rowData} />)}
+        </tbody>
+      </table>
       )
+  }
   }
   
 export default Table
