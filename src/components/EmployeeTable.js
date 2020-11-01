@@ -1,6 +1,7 @@
 import react from "react";
 import API from "../utils/API";
 import Row from "./Row";
+import SearchForm from "./SearchForm";
 
 // Code below adapted from
 // https://codepen.io/austinlyons/pen/YpmyJB?editors=0010
@@ -39,11 +40,11 @@ import Row from "./Row";
       <table className="table">
         <thead>
           <tr>
-          <th onClick={() => this.sortBy('name')} >ID</th>
-          <th onClick={() => this.sortBy('title')}>Title</th>
-          <th onClick={() => this.sortBy('priority')}>Priority</th>
-          <th onClick={() => this.sortBy('type')}>Issue Type</th>
-          <th onClick={() => this.sortBy('complete')}>% Complete</th>
+          <th onClick={() => this.sortBy('name')} >Last Name</th>
+          <th onClick={() => this.sortBy('title')}>First Name</th>
+          <th onClick={() => this.sortBy('priority')}>City</th>
+          <th onClick={() => this.sortBy('type')}>Email</th>
+          <th onClick={() => this.sortBy('complete')}>Phone</th>
           </tr>
         </thead>
         <tbody>
