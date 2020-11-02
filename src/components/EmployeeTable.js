@@ -23,15 +23,34 @@ class Table extends react.Component {
 
     this.compareBy.bind(this);
     this.sortBy.bind(this);
-    }
+  }
 
   componentDidMount() {
     API.getUsers().then(res => {
       console.log(res);
-      this.setState({ 
-        data: res.data.results,
-       })
-      console.log(this.state.details);
+      this.setState({
+        data: res.data.results
+        // commented out sections are attempts at destructuring to make sort function work
+        // {
+        //   first: res.data.results.name.first,
+        //   last: res.data.results.name.last,
+        //   location: res.data.results.location.city,
+        //   email: res.data.results.email,
+        //   phone: res.data.results.phone,
+        //   id: res.data.results.id.value,
+        //   pic: res.data.results.picture.thumbnail
+        // }
+      })
+      console.log(this.state);
+      // const details = this.state.map(() => {
+      //     name: this.state.name.first,
+      //     last: res.data.results.name.last,
+      //     location: res.data.results.location.city,
+      //     email: res.data.results.email,
+      //     phone: res.data.results.phone,
+      //     id: res.data.results.id.value,
+      //     picture: res.data.results.picture.thumbnail
+      // })
     })
   }
 
@@ -54,14 +73,14 @@ class Table extends react.Component {
     const rows = this.state.data.map((rowData) => <Row {...rowData} />);
     return (
       <table className="table">
-        <thead className = "tableHeader">
+        <thead className="tableHeader">
           <tr>
-              <th onClick={() => this.sortBy('first')} >First Name</th>
-              <th onClick={() => this.sortBy('name.last')}>Last Name</th>
-              <th onClick={() => this.sortBy('location')}>City</th>
-              <th onClick={() => this.sortBy('email')}>Email</th>
-              <th onClick={() => this.sortBy('phone')}>Phone</th>
-              <th onClick={() => this.sortBy('id')}>ID</th>
+            <th onClick={() => this.sortBy('first')} >First Name</th>
+            <th onClick={() => this.sortBy('name.last')}>Last Name</th>
+            <th onClick={() => this.sortBy('location')}>City</th>
+            <th onClick={() => this.sortBy('email')}>Email</th>
+            <th onClick={() => this.sortBy('phone')}>Phone</th>
+            <th onClick={() => this.sortBy('id')}>ID</th>
           </tr>
         </thead>
         <tbody>

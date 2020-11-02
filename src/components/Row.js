@@ -1,5 +1,5 @@
 
-const Row = ({ name, location, email, phone, id }) => (
+const Row = ({ name, location, email, phone, id, picture }) => (
     <tr>
       <td>{name.first}</td>
       <td>{name.last}</td>
