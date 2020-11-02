@@ -1,12 +1,12 @@
-# STEP IT UP
+# EMPLOYEE FLEX DIRECTORY
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
   ## DESCRIPTION
-  This application provides users with a way to develop, store and chart workouts. The interface is simple; workouts can be added and modified; progress is tracked and charted to increase motivation.
+  This application provides users with a sortable, searchable table of employee data.
 
   ## CHECK IT OUT HERE
-  https://step-it-up-mongoose.herokuapp.com/?id=5f8b6e2b13687e46f6a3bb95
+  https://mwoodervin.github.io/Employee-Flex-Direct/
 
 
   ## TABLE OF CONTENTS
@@ -18,29 +18,20 @@
 
   ## INSTALLATION
 ```bash
-  node server.js
+  npm start
 ```
 
   ### SCREENSHOTS
-  Homepage where most recent workouts are displayed; access to add workouts or view workout history
-
-  ![image](https://user-images.githubusercontent.com/65414966/96354478-274df200-10a5-11eb-87c5-0e184af22c13.png)
-
-
-  Stats page displaying charts of workout history
-  ![image](https://user-images.githubusercontent.com/65414966/96354490-55333680-10a5-11eb-9187-cdffabfab071.png)
-
-  Add workout page
-  ![image](https://user-images.githubusercontent.com/65414966/96354516-8f043d00-10a5-11eb-82b9-8e71fd05ec6b.png)
-
+![image](https://user-images.githubusercontent.com/65414966/97826636-22d22d80-1c90-11eb-9e70-9a6fbfeac48f.png)
 
   ## USAGE
-  This application makes it easy to create a simple employee directory for a team including one manager and any number of engineers and interns. 
+  This application makes it easy to sort and search a simple employee directory.
 
   ```
-  As a fitness enthusiast
-  I WANT a place to collect and track my workouts
-  I WANT graphics to help me stay motivated
+  As a manager
+  I WANT the ability to view a table of employee data
+  I WANT to be able to sort employee data
+  I WANT to be able to search for an employee by last name.
   ```
 
   ## CONTACT
