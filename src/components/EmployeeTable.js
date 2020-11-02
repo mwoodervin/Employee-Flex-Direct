@@ -3,10 +3,6 @@ import API from "../utils/API";
 import Row from "./Row";
 import SearchForm from "./SearchForm";
 import './style.css'
-// uuid to use for key
-import { v4 as uuidv4 } from "uuid";
-
-uuidv4();
 
 // Code below for sort adapted from
 // https://codepen.io/austinlyons/pen/YpmyJB?editors=0010
@@ -30,27 +26,8 @@ class Table extends react.Component {
       console.log(res);
       this.setState({
         data: res.data.results
-        // commented out sections are attempts at destructuring to make sort function work
-        // {
-        //   first: res.data.results.name.first,
-        //   last: res.data.results.name.last,
-        //   location: res.data.results.location.city,
-        //   email: res.data.results.email,
-        //   phone: res.data.results.phone,
-        //   id: res.data.results.id.value,
-        //   pic: res.data.results.picture.thumbnail
-        // }
       })
       console.log(this.state);
-      // const details = this.state.map(() => {
-      //     name: this.state.name.first,
-      //     last: res.data.results.name.last,
-      //     location: res.data.results.location.city,
-      //     email: res.data.results.email,
-      //     phone: res.data.results.phone,
-      //     id: res.data.results.id.value,
-      //     picture: res.data.results.picture.thumbnail
-      // })
     })
   }
 
